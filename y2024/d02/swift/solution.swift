@@ -40,13 +40,13 @@ func validateReport(report: [Int], canDampen: Bool) -> Bool {
         let valid = diff > 0 && diff < 4
         if !valid{
             if(!canDampen) { return false }
-            if(diff < 0) { mod *= -1}
+            if(diff < 0) { 
+                mod *= -1
+                if (i == 1) { candidateIndex.insert(0) }
+            }
             candidateIndex.insert(i)
             candidateIndex.insert(i+1)
         }
-    }
-    if(candidateIndex.contains(1)) {
-        candidateIndex.insert(0)
     }
     if !candidateIndex.isEmpty {
         for i in candidateIndex {
